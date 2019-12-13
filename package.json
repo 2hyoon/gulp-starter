@@ -1,0 +1,25 @@
+{
+  "name": "gulp-starter",
+  "version": "1.0.0",
+  "description": "basic gulp set up",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poietes/gulp-starter.git"
+  },
+  "keywords": [
+    "gulp"
+  ],
+  "author": "Hailey Yoon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/poietes/gulp-starter/issues"
+  },
+  "homepage": "https://github.com/poietes/gulp-starter#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
