@@ -1,4 +1,4 @@
-const {src, dest} = require('gulp');
+const { src, dest } = require('gulp');
 
 // compile sass files
 const sass = require('gulp-sass');
@@ -15,29 +15,22 @@ const sourcemaps = require('gulp-sourcemaps');
 // make css file as small as possible for a production environment
 const cssnano = require('cssnano');
 
+//
+const stylelint = require('stylelint');
+
 // plugins to use
-const plugins = [autoprefixer(), cssnano()];
+const plugins = [stylelint(), autoprefixer(), cssnano()];
 
-
-function scssDev() {
+function buildStyles() {
   return src('../app/src/scss/app.scss')
     .pipe(sourcemaps.init())
-    .pipe(sass()).on('error', sass.logError)
+    .pipe(sass())
+    .on('error', sass.logError)
     .pipe(postcss(plugins))
     .pipe(sourcemaps.write('.'))
     .pipe(dest('../dist/src/css'));
 }
 
-
-function scssProd() {
-  return src('../app/src/scss/app.scss')
-  .pipe(sass()).on('error', sass.logError)
-  .pipe(postcss(plugins))
-  .pipe(dest('../dist/src/css'));
-}
-
-
 module.exports = {
-  scssDev,
-  scssProd
-}
+  buildStyles,
+};
