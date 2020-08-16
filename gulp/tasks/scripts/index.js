@@ -23,25 +23,27 @@ const webpackModule = {
 };
 
 function buildScripts() {
-  return src('../app/src/js/app.js')
-    .pipe(
-      webpack(
-        {
-          mode: process.env.NODE_ENV || 'production',
-          devtool: 'source-map',
-          watch: true,
-          output: {
-            filename: 'app.js',
-          },
-          module: webpackModule,
-        },
-        compiler,
-        function (err, stats) {
-          /* Use stats to do more things if needed */
-        }
-      )
-    )
-    .pipe(dest('../dist/src/js'));
+  return (
+    src('./app/src/scripts/app.js')
+      // .pipe(
+      //   webpack(
+      //     {
+      //       mode: process.env.NODE_ENV || 'production',
+      //       devtool: 'source-map',
+      //       watch: true,
+      //       output: {
+      //         filename: 'app.js',
+      //       },
+      //       module: webpackModule,
+      //     },
+      //     compiler,
+      //     function (err, stats) {
+      //       /* Use stats to do more things if needed */
+      //     }
+      //   )
+      // )
+      .pipe(dest('./dist/src/scripts'))
+  );
 }
 
 module.exports = {

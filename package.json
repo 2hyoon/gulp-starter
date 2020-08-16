@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "gulp": "npm run prod",
-    "dev": "MODE=dev gulp  --gulpfile ./gulp/gulpfile.js dev ",
-    "prod": "MODE=prod gulp  --gulpfile ./gulp/gulpfile.js prod "
+    "dev": "MODE=dev gulp  --gulpfile ./gulpfile.js dev ",
+    "prod": "MODE=prod gulp  --gulpfile ./gulpfile.js prod "
   },
   "repository": {
     "type": "git",

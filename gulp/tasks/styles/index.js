@@ -22,13 +22,13 @@ const stylelint = require('stylelint');
 const plugins = [stylelint(), autoprefixer(), cssnano()];
 
 function buildStyles() {
-  return src('../app/src/scss/app.scss')
+  return src('./app/src/styles/app.scss')
     .pipe(sourcemaps.init())
     .pipe(sass())
     .on('error', sass.logError)
     .pipe(postcss(plugins))
     .pipe(sourcemaps.write('.'))
-    .pipe(dest('../dist/src/css'));
+    .pipe(dest('./dist/src/styles'));
 }
 
 module.exports = {
