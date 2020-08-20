@@ -1,7 +1,7 @@
 const btn = document.getQuerySelector('button');
 
-const clickHandler = e => {
-    console.log(e.target);
-}
+const clickHandler = (e) => {
+  console.log(e.target);
+};
 
-btn.addEventListener( 'click', clickHandler );
+btn.addEventListener('click', clickHandler);
