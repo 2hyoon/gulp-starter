@@ -1,8 +1,2 @@
-$color-black: #000;
-$color-white: #eee;
-$color-red: #ff0000;
-
-body {
-  background-color: $color-black;
-  color: $color-white;
-}
+@import 'base/reset';
+@import 'components/button';

@@ -1,0 +1,41 @@
+.btn {
+  padding: 15px 25px;
+  background-color: #4e6b85;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid #4e6b85;
+  border-radius: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+  &:hover {
+    color: #4e6b85;
+    background-color: #fff;
+    text-decoration: none;
+  }
+}
+
+body {
+  background-color: orange;
+
+  .c1 {
+    color: red;
+
+    .c2 {
+      color: blue;
+
+      .c3 {
+        color: purple;
+
+        .c4 {
+          color: black;
+
+          .c5 {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
