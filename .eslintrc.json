@@ -1,8 +1,16 @@
 {
-  "extends": ["airbnb"],
+  "extends": ["airbnb", "prettier"],
   "env": {
     "es6": true,
     "browser": true
   },
-  "rules": { "no-console": "off" }
+  "rules": {
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
+    "no-console": "warn"
+  }
 }

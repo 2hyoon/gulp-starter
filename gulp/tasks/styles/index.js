@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const { src, dest } = require('gulp');
 
 // compile sass files
@@ -15,15 +16,27 @@ const sourcemaps = require('gulp-sourcemaps');
 // make css file as small as possible for a production environment
 const cssnano = require('cssnano');
 
-//
-const stylelint = require('stylelint');
+// lint
+const gulpStylelint = require('gulp-stylelint');
 
 // plugins to use
-const plugins = [stylelint(), autoprefixer(), cssnano()];
+const plugins = [autoprefixer(), cssnano()];
 
 function buildStyles() {
   return src('./app/src/styles/app.scss')
     .pipe(sourcemaps.init())
+    .pipe(
+      gulpStylelint({
+        reporters: [
+          {
+            failAfterError: false,
+            // fix: true,
+            formatter: 'string',
+            console: true,
+          },
+        ],
+      })
+    )
     .pipe(sass())
     .on('error', sass.logError)
     .pipe(postcss(plugins))

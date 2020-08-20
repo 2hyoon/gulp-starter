@@ -1,11 +1,11 @@
+const browserSync = require('browser-sync').create();
+const del = require('del');
 const { series, parallel, watch } = require('gulp');
 const { buildFonts } = require('./gulp/tasks/fonts');
 const { buildImages } = require('./gulp/tasks/images');
 const { buildScripts } = require('./gulp/tasks/scripts');
 const { buildStyles } = require('./gulp/tasks/styles');
 const { buildHtml } = require('./gulp/tasks/html');
-const browserSync = require('browser-sync').create();
-const del = require('del');
 
 /**
  * BrowserSync
@@ -32,19 +32,19 @@ const cleanImages = () => del(['./dist/src/images']);
  * Watch
  */
 const watchHtml = () => {
-  watch('./app/src/templates/*.html')
+  watch('./app/src/templates/*.{html,hbs}')
     .on('change', series(buildHtml, browserSync.reload))
     .on('unlink', series(cleanHtml, buildHtml, browserSync.reload));
 };
 
 const watchStyles = () => {
-  watch('./app/src/scss/**/*.scss')
+  watch('./app/src/styles/**/*.scss')
     .on('change', series(buildStyles, browserSync.reload))
     .on('unlink', series(cleanStyles, buildStyles, browserSync.reload));
 };
 
 const watchScripts = () => {
-  watch('./app/src/js/**/*.js')
+  watch('./app/src/scripts/**/*.js')
     .on('change', series(buildScripts, browserSync.reload))
     .on('unlink', series(cleanScripts, buildScripts, browserSync.reload));
 };
@@ -68,8 +68,7 @@ const watchImages = () => {
 const dev = series(
   clean,
   parallel(buildFonts, buildImages, buildStyles, buildScripts, buildHtml),
-  parallel(serve, watchHtml)
-  // parallel(serve, watchFonts, watchImages, watchStyles, watchScripts, watchHtml)
+  parallel(serve, watchFonts, watchImages, watchStyles, watchScripts, watchHtml)
 );
 
 const prod = series(

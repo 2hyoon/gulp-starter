@@ -1,19 +1,24 @@
 {
   "name": "gulp-starter",
   "version": "1.0.0",
-  "description": "basic gulp set up",
+  "description": "basic gulp task runner set up for Vanilla JS",
   "main": "index.js",
   "scripts": {
     "gulp": "npm run prod",
-    "dev": "MODE=dev gulp  --gulpfile ./gulpfile.js dev ",
-    "prod": "MODE=prod gulp  --gulpfile ./gulpfile.js prod "
+    "dev": "MODE=dev gulp  --gulpfile ./gulpfile.js dev",
+    "prod": "MODE=prod gulp  --gulpfile ./gulpfile.js prod",
+    "lint": "eslint ./app/src/**/*.js ./gulp/**/*.js",
+    "stylelint": "stylelint ./app/src/styles/**/*.{css,scss,sass}"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/2hyoon/gulp-starter.git"
   },
   "keywords": [
-    "gulp"
+    "gulp",
+    "vanilla js",
+    "scss",
+    "javascript"
   ],
   "author": "Hailey Yoon",
   "license": "MIT",
@@ -29,6 +34,7 @@
     "del": "^5.1.0",
     "eslint": "^7.7.0",
     "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.6",
@@ -41,6 +47,8 @@
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
+    "gulp-stylelint": "^13.0.0",
+    "prettier": "2.0.5",
     "stylelint": "^13.6.1",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-scss": "^3.18.0",

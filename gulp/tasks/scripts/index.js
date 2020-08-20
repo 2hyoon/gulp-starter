@@ -6,6 +6,9 @@ const compiler = require('webpack');
 // run webpack as a stream to conveniently integrate with gulp.
 const webpack = require('webpack-stream');
 
+// eslint
+const eslint = require('gulp-eslint');
+
 // webpack module
 const webpackModule = {
   rules: [
@@ -15,6 +18,7 @@ const webpackModule = {
       use: {
         loader: 'babel-loader',
         options: {
+          babelrc: false,
           presets: ['@babel/preset-env'],
         },
       },
@@ -25,23 +29,23 @@ const webpackModule = {
 function buildScripts() {
   return (
     src('./app/src/scripts/app.js')
-      // .pipe(
-      //   webpack(
-      //     {
-      //       mode: process.env.NODE_ENV || 'production',
-      //       devtool: 'source-map',
-      //       watch: true,
-      //       output: {
-      //         filename: 'app.js',
-      //       },
-      //       module: webpackModule,
-      //     },
-      //     compiler,
-      //     function (err, stats) {
-      //       /* Use stats to do more things if needed */
-      //     }
-      //   )
-      // )
+      .pipe(eslint())
+      .pipe(eslint.format())
+      // .pipe(eslint.failAfterError())
+      .pipe(
+        webpack(
+          {
+            mode: process.env.NODE_ENV || 'production',
+            devtool: 'source-map',
+            // watch: true,
+            output: {
+              filename: 'app.js',
+            },
+            module: webpackModule,
+          },
+          compiler
+        )
+      )
       .pipe(dest('./dist/src/scripts'))
   );
 }
