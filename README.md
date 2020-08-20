@@ -28,7 +28,7 @@ $ npm run dev
 $ npm run prod
 ```
 
-**Run ESLint.** You can run [ESLint](https://eslint.org/) in CLI. Also ESLint is hooked up by gulp-eslint when you run `npm run dev` or `npm run prod`
+**Run ESLint.** You can run [ESLint](https://eslint.org/) in CLI. Also ESLint is hooked up by `gulp-eslint` when you run `npm run dev` or `npm run prod`
 
 ```bash
 $ npm run lint
@@ -77,8 +77,4 @@ $ npm run stylelint
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-```
-
-```
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
