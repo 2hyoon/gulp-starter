@@ -32,7 +32,7 @@ const cleanImages = () => del(['./dist/src/images']);
  * Watch
  */
 const watchHtml = () => {
-  watch('./app/src/templates/*.{html,hbs}')
+  watch('./app/src/templates/**/*.{html,hbs}')
     .on('change', series(buildHtml, browserSync.reload))
     .on('unlink', series(cleanHtml, buildHtml, browserSync.reload));
 };
