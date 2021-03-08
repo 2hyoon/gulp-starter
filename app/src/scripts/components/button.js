@@ -1,7 +1,17 @@
-const btn = document.getQuerySelector('button');
+const activateButton = () => {
+  if (!document.querySelector("button")) {
+    return;
+  }
 
-const clickHandler = (e) => {
-  console.log(e.target);
-};
+  const btn = document.querySelector("button");
 
-btn.addEventListener('click', clickHandler);
+  const clickHandler = (e) => {
+    console.log(e.target.innerText);
+  };
+
+  btn.addEventListener('click', clickHandler);
+}
+
+export default activateButton;
+activateButton();
+
