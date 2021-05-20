@@ -1,9 +1,5 @@
 {
-  "extends": ["airbnb", "prettier"],
-  "env": {
-    "es6": true,
-    "browser": true
-  },
+  "extends": ["airbnb-base", "prettier"],
   "rules": {
     "import/no-extraneous-dependencies": [
       "error",
