@@ -25,18 +25,6 @@ const plugins = [autoprefixer(), cssnano()];
 function buildStyles() {
   return src('./app/src/styles/app.scss')
     .pipe(sourcemaps.init())
-    .pipe(
-      gulpStylelint({
-        reporters: [
-          {
-            failAfterError: false,
-            // fix: true,
-            formatter: 'string',
-            console: true,
-          },
-        ],
-      })
-    )
     .pipe(sass())
     .on('error', sass.logError)
     .pipe(postcss(plugins))
@@ -44,6 +32,22 @@ function buildStyles() {
     .pipe(dest('./dist/src/styles'));
 }
 
+function lintStyles() {
+  return src('./app/src/styles/**/*.scss').pipe(
+    gulpStylelint({
+      reporters: [
+        {
+          formatter: 'string',
+          console: true,
+        }
+      ],
+      failAfterError: false,
+      fix: false,
+    })
+  );
+}
+
 module.exports = {
   buildStyles,
+  lintStyles,
 };

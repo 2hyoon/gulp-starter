@@ -27,29 +27,32 @@ const webpackModule = {
 };
 
 function buildScripts() {
-  return (
-    src('./app/src/scripts/app.js')
-      .pipe(eslint())
-      .pipe(eslint.format())
-      // .pipe(eslint.failAfterError())
-      .pipe(
-        webpack(
-          {
-            mode: process.env.NODE_ENV || 'production',
-            devtool: 'source-map',
-            // watch: true,
-            output: {
-              filename: 'app.js',
-            },
-            module: webpackModule,
+  return src('./app/src/scripts/app.js')
+    .pipe(
+      webpack(
+        {
+          mode: process.env.NODE_ENV || 'production',
+          devtool: 'source-map',
+          // watch: true,
+          output: {
+            filename: 'app.js',
           },
-          compiler
-        )
+          module: webpackModule,
+        },
+        compiler
       )
-      .pipe(dest('./dist/src/scripts'))
-  );
+    )
+    .pipe(dest('./dist/src/scripts'));
+}
+
+function lintScripts() {
+  return src('./app/src/scripts/**/*.js')
+    .pipe(eslint({ configFile: '.eslintrc.json', useEslintrc: true }))
+    .pipe(eslint.format());
+  // .pipe(eslint.failAfterError());
 }
 
 module.exports = {
   buildScripts,
+  lintScripts,
 };

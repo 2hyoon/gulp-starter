@@ -3,8 +3,8 @@ const del = require('del');
 const { series, parallel, watch } = require('gulp');
 const { buildFonts } = require('./gulp/tasks/fonts');
 const { buildImages } = require('./gulp/tasks/images');
-const { buildScripts } = require('./gulp/tasks/scripts');
-const { buildStyles } = require('./gulp/tasks/styles');
+const { buildScripts, lintScripts } = require('./gulp/tasks/scripts');
+const { buildStyles, lintStyles } = require('./gulp/tasks/styles');
 const { buildHtml } = require('./gulp/tasks/html');
 
 /**
@@ -39,13 +39,13 @@ const watchHtml = () => {
 
 const watchStyles = () => {
   watch('./app/src/styles/**/*.scss')
-    .on('change', series(buildStyles, browserSync.reload))
+    .on('change', series(lintStyles, buildStyles, browserSync.reload))
     .on('unlink', series(cleanStyles, buildStyles, browserSync.reload));
 };
 
 const watchScripts = () => {
   watch('./app/src/scripts/**/*.js')
-    .on('change', series(buildScripts, browserSync.reload))
+    .on('change', series(lintScripts, buildScripts, browserSync.reload))
     .on('unlink', series(cleanScripts, buildScripts, browserSync.reload));
 };
 
@@ -67,13 +67,23 @@ const watchImages = () => {
  */
 const dev = series(
   clean,
+  lintScripts,
+  lintStyles,
   parallel(buildFonts, buildImages, buildStyles, buildScripts, buildHtml),
   parallel(serve, watchFonts, watchImages, watchStyles, watchScripts, watchHtml)
 );
 
 const prod = series(
   clean,
-  parallel(buildFonts, buildImages, buildScripts, buildStyles, buildHtml)
+  parallel(
+    lintScripts,
+    lintStyles,
+    buildFonts,
+    buildImages,
+    buildScripts,
+    buildStyles,
+    buildHtml
+  )
 );
 
 /**
