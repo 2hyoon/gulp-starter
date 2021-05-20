@@ -1,12 +1,11 @@
 # Gulp Starter for Vanila JS
 
-Gulp task runner starter for the Vanila Javascript.
+- Gulp task runner starter for html, s/css, vanilla javascript, fonts and images.
+- [Handlebars](https://handlebarsjs.com/) is used for html templating.
 
-## Getting Started
+## Installation
 
-### Installation
-
-Prerequisites: Make sure you have [**Node**](https://nodejs.org/en/) and **NPM** installed on your computer.
+Prerequisites: Make sure you have [**Node**](https://nodejs.org/en/) and [**NPM**](https://www.npmjs.com/) installed on your computer.
 
 **Install NPM packages.**
 
@@ -14,37 +13,75 @@ Prerequisites: Make sure you have [**Node**](https://nodejs.org/en/) and **NPM**
 $ npm install
 ```
 
-### Running tasks
+## How to Run Tasks
 
-**Run development mode.** This task will automatically open your browser via [Browsersync](https://www.browsersync.io/) and reload pages whenever your files get updated.
+**How To Run Development Mode**
+
+- This task will automatically open your browser via [Browsersync](https://www.browsersync.io/) and reload pages whenever your files get updated.
 
 ```bash
 $ npm run dev
 ```
 
-**Build production files.** This task will generate production files and emit them into **dist** folder.
+**How to Build Production Files**
+
+- This task will generate production files and emit them into **dist** folder.
 
 ```bash
 $ npm run prod
 ```
 
-**Run ESLint.** You can run [ESLint](https://eslint.org/) in CLI. Also ESLint is hooked up by `gulp-eslint` when you run `npm run dev` or `npm run prod`
+**How to ESLint.**
+
+- Airbnb Basic Config(eslint-config-airbnb-base) is Used for Lint.
+- ESLint extends Prettier to turn off ESLint formatting. (See .eslintrc.json) Formatting works separately with Prettier.
+- ESLint is hooked up by `gulp-eslint` when you run `npm run dev` or `npm run prod`
+- You can also run [ESLint](https://eslint.org/) in CLI with package.json
 
 ```bash
 $ npm run lint
 ```
 
-**Run Stylelint.** You can run [Stylelint](https://stylelint.io/) in CLI. Also Stylelint is hooked up by `gulp-stylelint` when you run `npm run dev` or `npm run prod`
+- To run with ESLint CLI
+
+```bash
+$ npx eslint <file-name>
+$ npx eslint --fix <file-name> # Automatically fix problems
+$ npx eslint --fix-dry-run <file-name> # Automatically fix problems without saving the changes to the file system
+```
+
+**How to Stylelint**
+
+- Stylelint is hooked up by `gulp-stylelint` when you run `npm run dev` or `npm run prod`
+- You can run [Stylelint](https://stylelint.io/) in CLI with package.json.
 
 ```bash
 $ npm run stylelint
 ```
 
-### Folder Structure
+- To run with Stylelint CLI
+
+```bash
+$ npx stylelint "./app/src/styles/**/*.{css,scss,sass}"
+$ npx stylelint --fix "./app/src/styles/**/*.{css,scss,sass}"
+```
+
+**Prettier for Formatting**
+
+- Prettier with VSCode:
+- Prettier with CLI
+
+```bash
+$ npx prettier --write <file-name> # formatting everything
+$ npx prettier --check <file-name> # only checks that files are already formatted, rather than overwriting them.
+```
+
+## Folder Structure
 
 ```bash
 ├── .editorconfig # https://editorconfig.org/
 ├── .eslintrc.json # https://eslint.org/
+├── .eslintignore
 ├── .gitignore
 ├── .prettierignore
 ├── .prettierrc.json # https://prettier.io/
