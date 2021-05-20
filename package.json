@@ -1,59 +1,62 @@
 {
-  "name": "gulp-starter",
-  "version": "1.0.0",
-  "description": "basic gulp task runner set up for Vanilla JS",
-  "main": "index.js",
-  "scripts": {
-    "gulp": "npm run prod",
-    "dev": "MODE=dev gulp  --gulpfile ./gulpfile.js dev",
-    "prod": "MODE=prod gulp  --gulpfile ./gulpfile.js prod",
-    "lint": "eslint ./app/src/**/*.js ./gulp/**/*.js",
-    "stylelint": "stylelint ./app/src/styles/**/*.{css,scss,sass}"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/2hyoon/gulp-starter.git"
-  },
-  "keywords": [
-    "gulp",
-    "vanilla js",
-    "scss",
-    "javascript"
-  ],
-  "author": "Hailey Yoon",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/2hyoon/gulp-starter/issues"
-  },
-  "homepage": "https://github.com/2hyoon/gulp-starter#readme",
-  "devDependencies": {
-    "@babel/core": "^7.11.1",
-    "@babel/preset-env": "^7.11.0",
-    "babel-loader": "^8.1.0",
-    "browser-sync": "^2.26.12",
-    "del": "^5.1.0",
-    "eslint": "^7.7.0",
-    "eslint-config-airbnb": "^18.2.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react": "^7.20.6",
-    "eslint-plugin-react-hooks": "^4.0.8",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
-    "gulp-cssnano": "^2.1.3",
-    "gulp-eslint": "^6.0.0",
-    "gulp-hb": "^8.0.0",
-    "gulp-postcss": "^8.0.0",
-    "gulp-sass": "^4.1.0",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-stylelint": "^13.0.0",
-    "prettier": "2.0.5",
-    "stylelint": "^13.6.1",
-    "stylelint-config-standard": "^20.0.0",
-    "stylelint-scss": "^3.18.0",
-    "webpack": "^4.44.1",
-    "webpack-stream": "^5.2.1"
-  },
-  "dependencies": {}
+	"name": "gulp-starter",
+	"version": "1.0.0",
+	"description": "basic gulp task runner set up for Vanilla JS",
+	"main": "index.js",
+	"scripts": {
+		"gulp": "npm run prod",
+		"dev": "MODE=dev gulp  --gulpfile ./gulpfile.js dev",
+		"prod": "MODE=prod gulp  --gulpfile ./gulpfile.js prod",
+		"lint": "eslint ./app/src/scripts ./gulp/tasks",
+		"stylelint": "stylelint ./app/src/styles/**/*.{css,scss,sass}",
+		"prettier-check": "prettier --check ./app/src/styles",
+		"prettier-write": "prettier --write ./app/src/styles"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/2hyoon/gulp-starter.git"
+	},
+	"keywords": [
+		"gulp",
+		"scss",
+		"javascript"
+	],
+	"author": "Hailey Yoon",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/2hyoon/gulp-starter/issues"
+	},
+	"homepage": "https://github.com/2hyoon/gulp-starter#readme",
+	"devDependencies": {
+		"@babel/core": "^7.14.2",
+		"@babel/preset-env": "^7.14.2",
+		"babel-loader": "^8.2.2",
+		"browser-sync": "^2.26.14",
+		"del": "^6.0.0",
+		"eslint": "^7.26.0",
+		"eslint-config-airbnb-base": "^14.2.1",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-import": "^2.22.1",
+		"gulp": "^4.0.2",
+		"gulp-autoprefixer": "^7.0.1",
+		"gulp-cssnano": "^2.1.3",
+		"gulp-eslint": "^6.0.0",
+		"gulp-hb": "^8.0.0",
+		"gulp-postcss": "^9.0.0",
+		"gulp-sass": "^4.1.0",
+		"gulp-sourcemaps": "^3.0.0",
+		"gulp-stylelint": "^13.0.0",
+		"postcss": "^8.2.15",
+		"prettier": "^2.3.0",
+		"prettier-stylelint": "^0.4.2",
+		"stylelint": "^13.13.1",
+		"stylelint-config-prettier": "^8.0.2",
+		"stylelint-config-rational-order": "^0.1.2",
+		"stylelint-config-sass-guidelines": "^8.0.0",
+		"stylelint-order": "^4.1.0",
+		"stylelint-scss": "^3.19.0",
+		"webpack": "^5.37.0",
+		"webpack-stream": "^6.1.2"
+	},
+	"dependencies": {}
 }
